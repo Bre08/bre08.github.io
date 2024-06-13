@@ -15,7 +15,7 @@
 			display: block;
 			position: absolute;
 			top: 100px;
-			left: 0px;  /* <--- Change me! */
+			left: 600px;  /* <--- Change me! */
 		}
 		.board{
 			height: 100vh;
@@ -75,13 +75,12 @@
 				positionX = positionX + speed;
 				moveBoxTo(positionX);
 			};
-			if (boardWidth >= 200){
+			if (positionX >= boardWidth){
 				speed = -speed;
 			}
-			
-		
-
-	
+			else if (positionX < 0){
+				positionX = positionX + speed;
+			}
 
 				
 		
@@ -94,6 +93,7 @@
 			function handleBoxClick() {
 				positionX = 0;
 				points += 1
+				speed = speed + points
 				changeBoxText(points);
 			};
 		})();
